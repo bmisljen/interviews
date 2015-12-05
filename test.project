@@ -99,5 +99,6 @@
     <File Name="stringoperations.cpp"/>
     <File Name="binarytree.h"/>
     <File Name="BinaryTree.cpp"/>
+    <File Name="numberoperations.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

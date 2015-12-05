@@ -97,3 +97,51 @@ void Node::rprint()
     }
 	cout << endl;
 }
+
+void Node::reverse()
+{
+    //reverse a singly linked linked list
+    NODE *tail = head;
+    while (tail->next != NULL)
+    {
+        // find the end of the list
+        tail = tail->next;
+    }
+    if (head == NULL)
+    {
+        // no nodes in the list to reverse 
+        return;
+    }
+    if (tail == head)
+    {
+        // only one node in the list, no need to reverse it 
+        return ;
+    }
+    if (head->next == tail)
+    {
+        // two nodes in the list
+        tail->next = head;
+        head->next = NULL;
+    }
+    else
+    {
+        NODE * prev = NULL;
+        NODE * curr = head;
+        NODE * currNext = NULL;
+
+        while (curr != NULL)
+        {
+            // move the next node to the one after the current node 
+            currNext = curr->next;
+            // set the current node to point to the previous node
+            curr->next = prev;
+            // move the previous node to the current node
+            prev = curr;
+            // move the current node to the next node 
+            curr = currNext;
+        }
+        head=prev;
+    }
+    // print the reversed list 
+    print();
+}

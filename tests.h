@@ -9,3 +9,4 @@ int *sumBinary(int a[], int b[]);
 int paragraph();
 void reverseString (char * str);
 void isAnagram (char str []);
+int gcd(int a, int b);

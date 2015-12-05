@@ -15,6 +15,7 @@ int main(int argc, char **argv)
         cout<<"2. Linked List"<<endl;
         cout<<"3. String Operations"<<endl;
         cout<<"4. Binary Trees"<<endl;
+        cout<<"5. Number Operations"<<endl;
         cout<<"0. Exit"<<endl;
         cout<<"-------------------------------------"<<endl;
         cout<<"Enter the question you want: ";
@@ -61,10 +62,12 @@ int main(int argc, char **argv)
                 cout<<"List contents: ";
                 nd->print();
                 cout<<"popping: "<<nd->pop()<<endl;
-                cout<<"List contents: ";
+                cout<<"In order list printout: ";
                 nd->print();
-                cout<<endl<<"Reverse list contents: ";
+                cout<<endl<<"Reverse list printout: ";
                 nd->rprint();
+                cout<<endl<<"Reversing nodes in list, new list printout in order: ";
+                nd->reverse();
                 delete nd; 
                 break;
             }
@@ -119,6 +122,15 @@ int main(int argc, char **argv)
                 // print the tree using DFS search 
                 //tree->printDFS();
                 delete tree; 
+                break;
+            }
+            case 5:
+            {
+                int a,b;
+                cout<<"Enter two positive integers (separated by spaces) to find the GCD: ";
+                cin>>a;
+                cin>>b;
+                cout<<"The GCD between: "<<a<<" and: "<<b<<" is: "<<gcd(a,b)<<endl;
                 break;
             }
         }

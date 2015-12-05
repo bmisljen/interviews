@@ -14,6 +14,7 @@ public:
     void rlist();
 	void print();
     void rprint();
+    void reverse();
     
 private:
 	typedef struct node {

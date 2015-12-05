@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Boris
-Date                   :=04/12/2015
+Date                   :=05/12/2015
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/testsMain.cpp$(ObjectSuffix) $(IntermediateDirectory)/fibinacci.cpp$(ObjectSuffix) $(IntermediateDirectory)/LinkedList.cpp$(ObjectSuffix) $(IntermediateDirectory)/stringoperations.cpp$(ObjectSuffix) $(IntermediateDirectory)/BinaryTree.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/testsMain.cpp$(ObjectSuffix) $(IntermediateDirectory)/fibinacci.cpp$(ObjectSuffix) $(IntermediateDirectory)/LinkedList.cpp$(ObjectSuffix) $(IntermediateDirectory)/stringoperations.cpp$(ObjectSuffix) $(IntermediateDirectory)/BinaryTree.cpp$(ObjectSuffix) $(IntermediateDirectory)/numberoperations.cpp$(ObjectSuffix) 
 
 
 
@@ -132,6 +132,14 @@ $(IntermediateDirectory)/BinaryTree.cpp$(DependSuffix): BinaryTree.cpp
 
 $(IntermediateDirectory)/BinaryTree.cpp$(PreprocessSuffix): BinaryTree.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/BinaryTree.cpp$(PreprocessSuffix) "BinaryTree.cpp"
+
+$(IntermediateDirectory)/numberoperations.cpp$(ObjectSuffix): numberoperations.cpp $(IntermediateDirectory)/numberoperations.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Boris/Documents/interviews/test/numberoperations.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/numberoperations.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/numberoperations.cpp$(DependSuffix): numberoperations.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/numberoperations.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/numberoperations.cpp$(DependSuffix) -MM "numberoperations.cpp"
+
+$(IntermediateDirectory)/numberoperations.cpp$(PreprocessSuffix): numberoperations.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/numberoperations.cpp$(PreprocessSuffix) "numberoperations.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

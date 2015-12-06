@@ -101,27 +101,15 @@ void Node::rprint()
 void Node::reverse()
 {
     //reverse a singly linked linked list
-    NODE *tail = head;
-    while (tail->next != NULL)
-    {
-        // find the end of the list
-        tail = tail->next;
-    }
     if (head == NULL)
     {
         // no nodes in the list to reverse 
         return;
     }
-    if (tail == head)
+    if (head->next == NULL)
     {
         // only one node in the list, no need to reverse it 
-        return ;
-    }
-    if (head->next == tail)
-    {
-        // two nodes in the list
-        tail->next = head;
-        head->next = NULL;
+        return;
     }
     else
     {
@@ -140,6 +128,7 @@ void Node::reverse()
             // move the current node to the next node 
             curr = currNext;
         }
+        // the head no points to the tail of the previous list 
         head=prev;
     }
     // print the reversed list 

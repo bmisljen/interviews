@@ -1,1 +1,1 @@
-./Debug/testsMain.cpp.o ./Debug/fibinacci.cpp.o ./Debug/LinkedList.cpp.o ./Debug/stringoperations.cpp.o ./Debug/BinaryTree.cpp.o ./Debug/numberoperations.cpp.o   
+./Debug/testsMain.cpp.o ./Debug/fibinacci.cpp.o ./Debug/LinkedList.cpp.o ./Debug/stringoperations.cpp.o ./Debug/BinaryTree.cpp.o ./Debug/numberoperations.cpp.o ./Debug/sort.cpp.o   

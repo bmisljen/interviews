@@ -100,5 +100,6 @@
     <File Name="binarytree.h"/>
     <File Name="BinaryTree.cpp"/>
     <File Name="numberoperations.cpp"/>
+    <File Name="sort.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

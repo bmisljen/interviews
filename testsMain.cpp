@@ -16,6 +16,7 @@ int main(int argc, char **argv)
         cout<<"3. String Operations"<<endl;
         cout<<"4. Binary Trees"<<endl;
         cout<<"5. Number Operations"<<endl;
+        cout<<"6. Sorting"<<endl;
         cout<<"0. Exit"<<endl;
         cout<<"-------------------------------------"<<endl;
         cout<<"Enter the question you want: ";
@@ -131,6 +132,36 @@ int main(int argc, char **argv)
                 cin>>a;
                 cin>>b;
                 cout<<"The GCD between: "<<a<<" and: "<<b<<" is: "<<gcd(a,b)<<endl;
+                break;
+            }
+            case 6:
+            {
+                cout<<endl;
+                int num;
+                cout<<"Enter the number of array numbers (ELEMENTS) [THEN PRESS ENTER]:";
+                cin>>num;
+                vector<int> arr;
+                cout<<"Enter the ( "<< num <<" ) numbers (ELEMENTS) [THEN PRESS ENTER]:"<<endl;
+                for(int i=1; i<=num; i++)
+                {
+                    int element;
+                    cin>>element;
+                    arr.push_back(element);
+                }
+                vector<int> sorted = bubble_sort(arr);
+                cout<<endl<<"Bubble Sort Output: "<<endl;
+                for (vector<int>::iterator it = sorted.begin() ; it != sorted.end(); ++it)
+                {
+                    cout<<*it<<" ";
+                }
+                cout<<endl;
+                cout<<"Insertion Sort Output: "<<endl;
+                sorted = insertion_sort(arr);
+                for (vector<int>::iterator it = sorted.begin() ; it != sorted.end(); ++it)
+                {
+                    cout<<*it<<" ";
+                }
+                cout<<endl;
                 break;
             }
         }

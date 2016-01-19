@@ -84,6 +84,9 @@ int main(int argc, char **argv)
                 cout<<"Enter a string to test for anagram: ";
                 cin>>str;
                 isAnagram(str);
+                cout<<"Enter a string to print tha characters: ";
+                cin>>str;
+                stringprintchars(str);
                 break;
             }
             case 4:

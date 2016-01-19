@@ -50,3 +50,13 @@ void isAnagram (char str [])
     }
 }
 
+void stringprintchars(char str [])
+{
+    char * head = str;
+    
+    // find the end of the string 
+    for (; *head != '\0'; ++head)
+    {
+        cout<<*head<<"  ";
+    }
+}

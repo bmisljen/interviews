@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Boris
-Date                   :=24/12/2015
+Date                   :=19/01/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/testsMain.cpp$(ObjectSuffix) $(IntermediateDirectory)/fibinacci.cpp$(ObjectSuffix) $(IntermediateDirectory)/LinkedList.cpp$(ObjectSuffix) $(IntermediateDirectory)/stringoperations.cpp$(ObjectSuffix) $(IntermediateDirectory)/BinaryTree.cpp$(ObjectSuffix) $(IntermediateDirectory)/numberoperations.cpp$(ObjectSuffix) $(IntermediateDirectory)/sort.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/testsMain.cpp$(ObjectSuffix) $(IntermediateDirectory)/fibinacci.cpp$(ObjectSuffix) $(IntermediateDirectory)/LinkedList.cpp$(ObjectSuffix) $(IntermediateDirectory)/stringoperations.cpp$(ObjectSuffix) $(IntermediateDirectory)/BinaryTree.cpp$(ObjectSuffix) $(IntermediateDirectory)/numberoperations.cpp$(ObjectSuffix) $(IntermediateDirectory)/sort.cpp$(ObjectSuffix) $(IntermediateDirectory)/doublelinkedlist.cpp$(ObjectSuffix) 
 
 
 
@@ -148,6 +148,14 @@ $(IntermediateDirectory)/sort.cpp$(DependSuffix): sort.cpp
 
 $(IntermediateDirectory)/sort.cpp$(PreprocessSuffix): sort.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/sort.cpp$(PreprocessSuffix) "sort.cpp"
+
+$(IntermediateDirectory)/doublelinkedlist.cpp$(ObjectSuffix): doublelinkedlist.cpp $(IntermediateDirectory)/doublelinkedlist.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Boris/Documents/interviews/test/doublelinkedlist.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/doublelinkedlist.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/doublelinkedlist.cpp$(DependSuffix): doublelinkedlist.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/doublelinkedlist.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/doublelinkedlist.cpp$(DependSuffix) -MM "doublelinkedlist.cpp"
+
+$(IntermediateDirectory)/doublelinkedlist.cpp$(PreprocessSuffix): doublelinkedlist.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/doublelinkedlist.cpp$(PreprocessSuffix) "doublelinkedlist.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

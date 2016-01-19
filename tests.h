@@ -10,6 +10,6 @@ int paragraph();
 void reverseString (char * str);
 void isAnagram (char str []);
 int gcd(int a, int b);
-std::vector<int> bubble_sort(std::vector<int> arr);
+std::vector<int> bubble_sort (std::vector<int> arr);
 std::vector<int> insertion_sort (std::vector<int> arr);
-//void merge(vector<int> arr, left, mid, right);
+std::vector<int> quick_sort (std::vector<int> arr, int left, int right);

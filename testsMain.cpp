@@ -1,5 +1,6 @@
 #include "tests.h"
 #include "node.h"
+#include "doublelinkedlist.h"
 #include "binarytree.h"
 
 using namespace std;
@@ -17,6 +18,7 @@ int main(int argc, char **argv)
         cout<<"4. Binary Trees"<<endl;
         cout<<"5. Number Operations"<<endl;
         cout<<"6. Sorting"<<endl;
+        cout<<"7. Double Linked List"<<endl;
         cout<<"0. Exit"<<endl;
         cout<<"-------------------------------------"<<endl;
         cout<<"Enter the question you want: ";
@@ -162,6 +164,39 @@ int main(int argc, char **argv)
                     cout<<*it<<" ";
                 }
                 cout<<endl;
+                cout<<"Quick Sort Output: "<<endl;
+                sorted = quick_sort(arr, 0, arr.size()-1);
+                for (vector<int>::iterator it = sorted.begin() ; it != sorted.end(); ++it)
+                {
+                    cout<<*it<<" ";
+                }
+                cout<<endl;
+                break;
+            }
+            case 7:
+            {
+                cout<<endl;
+                // double linked list
+                DoubleNode * nd = new DoubleNode;
+                cout<<"appending: a, c, f, z to the end of the list"<<endl;
+                nd->append('a');
+                nd->append('c');
+                nd->append('f');
+                nd->append('z');
+                cout<<"appending: t, o, i to the start of the list"<<endl;
+                nd->appendHead('t');
+                nd->appendHead('o');
+                nd->appendHead('i');
+                cout<<"List contents: ";
+                nd->print();
+                cout<<"popping: "<<nd->pop()<<endl;
+                cout<<"In order list printout: ";
+                nd->print();
+                cout<<endl<<"Reverse list printout: ";
+                nd->rprint();
+                cout<<endl<<"Reversing nodes in list, new list printout in order: ";
+                nd->reverse();
+                delete nd; 
                 break;
             }
         }

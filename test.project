@@ -101,5 +101,7 @@
     <File Name="BinaryTree.cpp"/>
     <File Name="numberoperations.cpp"/>
     <File Name="sort.cpp"/>
+    <File Name="doublelinkedlist.h"/>
+    <File Name="doublelinkedlist.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

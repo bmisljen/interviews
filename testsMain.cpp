@@ -84,9 +84,13 @@ int main(int argc, char **argv)
                 cout<<"Enter a string to test for anagram: ";
                 cin>>str;
                 isAnagram(str);
-                cout<<"Enter a string to print tha characters: ";
+                cout<<"Enter a string to print the characters: ";
                 cin>>str;
                 stringprintchars(str);
+                cout<<endl<<"enter a string to find the first unique character: ";
+                cin>>str;
+                char c = firstUnique(str);
+                cout<<"The first unique character of: "<<str<<" is: "<<c<<endl;
                 break;
             }
             case 4:
@@ -201,6 +205,10 @@ int main(int argc, char **argv)
                 nd->reverse();
                 delete nd; 
                 break;
+            }
+            default:
+            {
+                return 0;
             }
         }
     }

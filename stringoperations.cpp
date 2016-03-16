@@ -23,13 +23,31 @@ const char * reverse(char str [])
     return str;
 }
 
-void reverseString (char str [])
+char *reverseNew(char str [])
 {
     char * head = str;
     char * tail = str;
+    char * dest = new char[strlen(str)];
     
+    for (; *tail != '\0'; ++tail);
+    
+    int i = 0;
+    
+    while(head < tail) {
+        --tail;
+        dest[i++] = *tail;
+    }
+    return dest;
+}
+
+void reverseString (char str [])
+{
+    size_t len = strlen(str);
+    char origstr[len];
+    strcpy(origstr, str);
     cout<<"The original string is: "<<str<<endl;
     cout<<"The reversed string is: "<<reverse(str)<<endl;
+    cout<<"The copied reversed string is: "<<reverseNew(origstr)<<endl;
 }
 
 void isAnagram (char str [])
@@ -48,6 +66,30 @@ void isAnagram (char str [])
     {
         cout<<"the string "<<origstr<<" is not an anagram"<<endl;
     }
+}
+
+char firstUnique(char str[])
+{
+    map<char, int> mapOfChars;
+    
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (mapOfChars.count(str[i])) {
+            //char is accounted for 
+            mapOfChars.at(str[i])++;
+        }
+        else 
+        {
+            // char isn't accounted for 
+            mapOfChars.insert(make_pair(str[i], 1));
+        }
+    }
+    for (map<char,int>::iterator it=mapOfChars.begin(); it != mapOfChars.end(); ++it)
+    {
+        if (it->second == 1)
+            return it->first;
+    }
+    return 'A'; 
 }
 
 void stringprintchars(char str [])

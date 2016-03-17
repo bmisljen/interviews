@@ -2,6 +2,7 @@
 #include "node.h"
 #include "doublelinkedlist.h"
 #include "binarytree.h"
+#include "Objects.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ int main(int argc, char **argv)
         cout<<"5. Number Operations"<<endl;
         cout<<"6. Sorting"<<endl;
         cout<<"7. Double Linked List"<<endl;
+        cout<<"8. Objects and Polymorphism"<<endl;
         cout<<"0. Exit"<<endl;
         cout<<"-------------------------------------"<<endl;
         cout<<"Enter the question you want: ";
@@ -204,6 +206,27 @@ int main(int argc, char **argv)
                 cout<<endl<<"Reversing nodes in list, new list printout in order: ";
                 nd->reverse();
                 delete nd; 
+                break;
+            }
+            case 8:
+            {
+                cout<<endl;
+                Rectangle rect;
+                Square sqr(5);
+                cout<<"Creating square with a side length of 5"<<endl;
+                Polygon * ppoly1 = &rect;
+                Polygon * ppoly2 = &sqr;
+                ppoly1->set_values (4,5);
+                cout<<"Setting rectangle width = 4, height = 5"<<endl;
+                // call the area function of rectangle 
+                cout <<"The area of the rectangle is: "<<ppoly1->area()<<endl;
+                // call the area function of square
+                cout <<"The area of the square is: "<<ppoly2->area()<<endl;
+                // creating a new rectangle of type square with default constructor
+                cout<<"Creating rectangle with default square constructor (side length = 3)"<<endl;
+                Rectangle * rect1 =  new Square;
+                // the area of the square and not the rectangle is displayed
+                cout <<"The area of the new object is: "<<rect1->area()<<endl;
                 break;
             }
             default:

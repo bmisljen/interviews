@@ -139,10 +139,18 @@ int main(int argc, char **argv)
             case 5:
             {
                 int a,b;
+                double c;
                 cout<<"Enter two positive integers (separated by spaces) to find the GCD: ";
                 cin>>a;
                 cin>>b;
                 cout<<"The GCD between: "<<a<<" and: "<<b<<" is: "<<gcd(a,b)<<endl;
+                cout<<"Enter a number to find the square root: ";
+                cin>>c;
+                cout<<"The square root of: "<<c<<" is: "<<squareroot(c)<<endl;
+                cout<<"Enter two integers (separated by spaces) to multiply without a * sign: ";
+                cin>>a;
+                cin>>b;
+                cout<<"The result of the multiplication is: "<<multiplyWithoutSign(a,b)<<endl;
                 break;
             }
             case 6:

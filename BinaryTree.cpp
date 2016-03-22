@@ -1,3 +1,17 @@
+/*
+ Copyright (c) 2016 Boris Misljencevic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+*/
+
 #include "binarytree.h"
 
 Tree::Tree()
@@ -135,8 +149,14 @@ void Tree::printBFS()
          }
      }
 }
- 
+
 void Tree::printDFS()
+{
+    cout<<endl<<"DFS printout of binary tree: ";
+    outputDFS(root);
+}
+
+void Tree::outputDFS(NODE * leaf)
 {
     /* prints the tree in order from top to bottom using DFS:
      * ex.  3
@@ -146,8 +166,16 @@ void Tree::printDFS()
      * 1  5 7  9
      *  prints as: 3 2 1 5 8 7 9
      */
-     // use a stack to print the tree
-    stack<NODE*> s;
-    s.push(root);
-
+     if (leaf)
+     {
+        cout<<leaf->data<<", "; 
+        if (leaf->left)
+        {
+            outputDFS(leaf->left);
+        }
+        if (leaf->right)
+        {
+            outputDFS(leaf->right);
+        }
+    }
 }

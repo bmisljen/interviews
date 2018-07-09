@@ -57,8 +57,8 @@ char *reverseNew(char str [])
 void reverseString (char str [])
 {
     size_t len = strlen(str);
-    char origstr[len];
-    strcpy(origstr, str);
+	char* origstr = new char[len];
+	strcpy(origstr, str);
     cout<<"The original string is: "<<str<<endl;
     cout<<"The reversed string is: "<<reverse(str)<<endl;
     cout<<"The copied reversed string is: "<<reverseNew(origstr)<<endl;
@@ -68,8 +68,8 @@ void isAnagram (char str [])
 {
     //save a copy of the original string as it will be reversed 
     size_t len = strlen(str);
-    char origstr[len];
-    strcpy(origstr, str);
+	char* origstr = new char[len];
+	strcpy(origstr, str);
     
     if (strcmp(origstr, reverse(str)) == 0)
     {

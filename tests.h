@@ -17,6 +17,9 @@ all copies or substantial portions of the Software.
 #include <iostream>
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <iterator>
+#include <string.h>
 
 int fibrecursive(int n);
 int fibiterative(int n);
@@ -30,6 +33,6 @@ double squareroot(int num);
 char firstUnique(char str[]);
 int multiplyWithoutSign(int a, int b);
 
-std::vector<int> bubble_sort (std::vector<int> arr);
-std::vector<int> insertion_sort (std::vector<int> arr);
-std::vector<int> quick_sort (std::vector<int> arr, int left, int right);
+void bubble_sort(int * arr, int num);
+void insertion_sort (int * arr, int num);
+

@@ -16,77 +16,40 @@ all copies or substantial portions of the Software.
 
 using namespace std;
 
-vector<int> bubble_sort(vector<int> arr)
+void bubble_sort(int * arr, int num)
 {
     // bubble sort has a time efficiency of O(n^2) 
-    int flag = 1;
-    int num;
-     
-    for (unsigned int i=0; i<arr.size() && flag; i++) 
+    for (int i=0; i<num; i++) 
     {
-        flag = 0;
-        for (unsigned int j=i; j<arr.size()-1; j++) 
+        for (int j=i; j<num-1; j++) 
         {
-            if (arr.at(j) > arr.at(j+1))
+            if (arr[i] > arr[j+1])
             {
                 // swap the values 
-                int temp = arr.at(j);
-                arr.at(j) = arr.at(j+1);
-                arr.at(j+1) = temp; 
-                flag = 1; 
+                int temp = arr[i];
+                arr[i] = arr[j+1];
+                arr[j+1] = temp; 
             }
         }
     }
-    return arr; 
 }
 
-vector<int> insertion_sort (vector<int> arr)
+void insertion_sort (int * arr, int num)
 {
     // more efficient than bubble sort, O(n) in best case and O(n^2) in worst case
     int j, temp;
     
-    for (int i = 0; i < arr.size(); i++){
+    for (int i = 0; i < num; i++){
         j = i;
 
-        while (j > 0 && arr.at(j) < arr.at(j-1))
+        while (j > 0 && arr[j] < arr[j-1])
         {
-            temp = arr.at(j);
-            arr.at(j) = arr.at(j-1);
-            arr.at(j-1) = temp;
+            temp = arr[j];
+            arr[j] = arr[j-1];
+            arr[j-1] = temp;
             j--;
         }
     }
-    return arr;
 }
 
-vector<int> quick_sort(vector<int> arr, int left, int right) 
-{
-      // standard C++ sort algorithm, on average sorts at O(n*log(n))
-      int i = left, j = right;
-      int tmp;
-      int pivot_index = (left + right) / 2;
-      int pivot = arr.at(pivot_index);
- 
-      /* partition */
-      while (i <= j) {
-            while (arr.at(i) < pivot)
-                  i++;
-            while (arr.at(j) > pivot)
-                  j--;
-            if (i <= j) {
-                  // swap the elements at i and j 
-                  tmp = arr.at(i);
-                  arr.at(i) = arr.at(j);
-                  arr.at(j) = tmp;
-                  i++;
-                  j--;
-            }
-      };
- 
-      /* recursion */
-      if (left < j)
-            quick_sort(arr, left, j);
-      if (i < right)
-            quick_sort(arr, i, right);
-}
 

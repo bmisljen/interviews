@@ -41,16 +41,19 @@ char *reverseNew(char str [])
 {
     char * head = str;
     char * tail = str;
-    char * dest = new char[strlen(str)];
+    char * dest = new char[strlen(str)-1];
     
     for (; *tail != '\0'; ++tail);
     
     int i = 0;
     
-    while(head < tail) {
+    do {
         --tail;
-        dest[i++] = *tail;
-    }
+        dest[i] = *tail;
+        if (head < tail){
+            i++;
+        }
+    }  while(head < tail);
     return dest;
 }
 
@@ -85,8 +88,8 @@ void isAnagram (char str [])
 char firstUnique(char str[])
 {
     map<char, int> mapOfChars;
-    
-    for (int i = 0; str[i] != '\0'; i++)
+
+    for (int i = 0; str[i] != '\0'; ++i)
     {
         if (mapOfChars.count(str[i])) {
             //char is accounted for 
@@ -98,6 +101,7 @@ char firstUnique(char str[])
             mapOfChars.insert(make_pair(str[i], 1));
         }
     }
+    
     for (map<char,int>::iterator it=mapOfChars.begin(); it != mapOfChars.end(); ++it)
     {
         if (it->second == 1)

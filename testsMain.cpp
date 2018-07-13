@@ -53,6 +53,7 @@ int main(int argc, char **argv)
                 int n = 0;
                 do
                 {
+                    cout<<"The fibinacci sequence is found by adding up two numbers before a number"<<endl;
                     cout<<"Enter the fibinacci number, 0 to go back to main menu: ";
                     cin>>n;
                     if (n!=0) {
@@ -175,33 +176,26 @@ int main(int argc, char **argv)
                 int num;
                 cout<<"Enter the number of array numbers (ELEMENTS) [THEN PRESS ENTER]:";
                 cin>>num;
-                vector<int> arr;
-                cout<<"Enter the ( "<< num <<" ) numbers (ELEMENTS) [THEN PRESS ENTER]:"<<endl;
-                for(int i=1; i<=num; i++)
+                int arr[num];
+                int arrTwo[num];
+                cout<<"Enter the ( "<< num <<" ) numbers [THEN PRESS ENTER]:"<<endl;
+                for(int i=0; i<num; i++)
                 {
-                    int element;
-                    cin>>element;
-                    arr.push_back(element);
+                    cin>>arr[i];
                 }
-                vector<int> sorted = bubble_sort(arr);
+                memcpy(arrTwo, arr, num*sizeof(int)); 
+                bubble_sort(arr, num);
                 cout<<endl<<"Bubble Sort Output: "<<endl;
-                for (vector<int>::iterator it = sorted.begin() ; it != sorted.end(); ++it)
+                for(int i=0; i<num; i++)
                 {
-                    cout<<*it<<" ";
+                    cout<<arr[i]<<" ";
                 }
-                cout<<endl;
-                cout<<"Insertion Sort Output: "<<endl;
-                sorted = insertion_sort(arr);
-                for (vector<int>::iterator it = sorted.begin() ; it != sorted.end(); ++it)
+                
+                insertion_sort(arrTwo, num);
+                cout<<endl<<"Insertion Sort Output: "<<endl;
+                for(int i=0; i<num; i++)
                 {
-                    cout<<*it<<" ";
-                }
-                cout<<endl;
-                cout<<"Quick Sort Output: "<<endl;
-                sorted = quick_sort(arr, 0, arr.size()-1);
-                for (vector<int>::iterator it = sorted.begin() ; it != sorted.end(); ++it)
-                {
-                    cout<<*it<<" ";
+                    cout<<arrTwo[i]<<" ";
                 }
                 cout<<endl;
                 break;

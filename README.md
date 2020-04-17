@@ -1,5 +1,6 @@
 # interviews
-Some Common Interview Quesitons Written in C++ using the Codelite IDE. <br />
+
+Some Common Interview Quesitons Written in C++. <br />
 Current topics include: <br />
     1. Fibinocci <br />
     2. Linked List <br />
@@ -10,13 +11,14 @@ Current topics include: <br />
     7. Double Linked List <br />
     8. Objects and Polymorphism 
 
-To run the project, first download and install Codelite: https://downloads.codelite.org/
-(Make sure to set up a C/C++ compiler for Codelite)
+To run the project clone the repo into a new directory.
 
-Then clone the repo into a new directory and in Codelite go to: File->Open->OpenWorkspace 
-to open the projects.workspace file 
+Prerequisite: Check and make sure g++ is installed: g++ --version 
+If not install (Ubuntu): sudo apt install build-essential 
 
-After that, in Codelite go to: Build->Build and Run Project 
+Then run: 
+1. From the project root, go to the src/ directory: cd src 
+2. Make the project: make
+3. Run the project: ./questions
 
-A command windows will pop up with a menu to select which excercise to run  
 

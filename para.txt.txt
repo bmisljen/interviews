@@ -1,1 +1,0 @@
-This is a paragraph. The top three words will be outputed using the paragraph program. The paragraph will be just a test for the three words.

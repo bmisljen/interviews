@@ -12,20 +12,19 @@ The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 */
 
-#include "tests.h"
-#include "doublelinkedlist.h"
+#include "../include/tests.h"
+#include "../include/node.h"
 #include <vector>
 
 using namespace std;
 
-DoubleNode::DoubleNode()
+Node::Node()
 {
     // Default Constructor 
 	head = NULL;
-    tail = NULL;
 }
 
-DoubleNode::~DoubleNode()
+Node::~Node()
 {
 	while(head) {
         // delete the nodes one by one from head onwards 
@@ -35,22 +34,16 @@ DoubleNode::~DoubleNode()
 	}
 }
 
-void DoubleNode::appendHead(char ch) 
+void Node::appendHead(int n) 
 {
     // Add a new node to the head of the list
 	NODE *ptr = new NODE;
 	ptr->next = head;
-    ptr->prev = NULL;
-	ptr->data = ch;
+	ptr->data = n;
 	head = ptr;
-    ptr->next->prev = ptr;
-    if (tail == NULL)
-    {
-        tail = head;
-    }
 }
 
-void DoubleNode::append(char ch) 
+void Node::append(int n) 
 {
     // add a new node to the tail of the list
 	NODE *ptr = new NODE;
@@ -67,33 +60,29 @@ void DoubleNode::append(char ch)
     else {
         // no head node exists yet 
         head = ptr;
-        tail = ptr;
     }
 	ptr->next = NULL;
-    ptr->prev = tmp;
-	ptr->data = ch;
-    tail = ptr; 
+	ptr->data = n;
 }
    
 
-char DoubleNode::pop()
+int Node::pop()
 {
     // Remove the first node in the list and return the value 
 	NODE *tmp = head;
-	char val = head->data;
+	int val = head->data;
 	head = head->next;
-    head->prev = NULL;
 	delete tmp;
 	return val;
 }
 
-char DoubleNode::peek()
+int Node::peek()
 {
     // Get the value of the first node in the list
 	return head->data;
 }
 
-void DoubleNode::print()
+void Node::print()
 {
     // print the list from start to finish 
 	NODE *curr = head;
@@ -104,50 +93,58 @@ void DoubleNode::print()
 	cout << endl;
 }
 
-void DoubleNode::rprint()
+void Node::rprint()
 {
-    // print the list from start to finish 
-	NODE *curr = tail;
-	while(curr) {
-		cout << curr->data << " ";
-		curr = curr->prev;
-	}
+    vector<int> myvector;
+	NODE *curr = head;
+    while (curr->next != NULL)
+    {
+        // go to the end of the list, store the node values in a vector
+        myvector.push_back(curr->data);
+        curr = curr->next;
+    }
+    myvector.push_back(curr->data);
+	for (unsigned int i=myvector.size(); i>0; i--)
+    {
+        // list the elements in reverse order 
+        cout << myvector[i-1]<< " ";
+    }
 	cout << endl;
 }
 
-void DoubleNode::reverse()
+void Node::reverse()
 {
-    //reverse a doubly linked linked list
+    //reverse a singly linked linked list
     if (head == NULL)
     {
         // no nodes in the list to reverse 
         return;
     }
-    if (head == tail)
+    if (head->next == NULL)
     {
         // only one node in the list, no need to reverse it 
         return;
     }
     else
     {
+        NODE * prev = NULL;
         NODE * curr = head;
         NODE * currNext = NULL;
+
         while (curr != NULL)
         {
             // move the next node to the one after the current node 
             currNext = curr->next;
             // set the current node to point to the previous node
-            NODE *tmp = curr->next;
-            curr->next = curr->prev;
-            curr->prev = tmp;
+            curr->next = prev;
+            // move the previous node to the current node
+            prev = curr;
             // move the current node to the next node 
             curr = currNext;
         }
         // the head no points to the tail of the previous list 
-        NODE *tmpHead = head;
-        head = tail;
-        tail = tmpHead;
-    } 
+        head=prev;
+    }
     // print the reversed list 
     print();
 }

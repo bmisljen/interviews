@@ -12,11 +12,11 @@ The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 */
 
-#include "tests.h"
-#include "node.h"
-#include "doublelinkedlist.h"
-#include "binarytree.h"
-#include "Objects.h"
+#include "../include/tests.h"
+#include "../include/node.h"
+#include "../include/doublelinkedlist.h"
+#include "../include/binarytree.h"
+#include "../include/Objects.h"
 
 using namespace std;
 

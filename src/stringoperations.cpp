@@ -13,7 +13,7 @@ all copies or substantial portions of the Software.
 */
 
 #include <string.h>
-#include "tests.h"
+#include "../include/tests.h"
 
 using namespace std;
 

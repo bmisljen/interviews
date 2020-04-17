@@ -13,7 +13,7 @@ all copies or substantial portions of the Software.
 */
 
 #include <cmath>
-#include "tests.h"
+#include "../include/tests.h"
 
 using namespace std;
 

@@ -182,6 +182,7 @@ int main(int argc, char **argv)
                 cin>>num;
                 int arr[num];
                 int arrTwo[num];
+                int arrThree[num];
                 cout<<"Enter the ( "<< num <<" ) numbers [THEN PRESS ENTER]:"<<endl;
                 for(int i=0; i<num; i++)
                 {
@@ -189,17 +190,31 @@ int main(int argc, char **argv)
                 }
                 memcpy(arrTwo, arr, num*sizeof(int)); 
                 bubble_sort(arr, num);
+                
+                // bubble sort 
                 cout<<endl<<"Bubble Sort Output: "<<endl;
                 for(int i=0; i<num; i++)
                 {
                     cout<<arr[i]<<" ";
                 }
                 
+                // insertion sort 
                 insertion_sort(arrTwo, num);
+                
                 cout<<endl<<"Insertion Sort Output: "<<endl;
                 for(int i=0; i<num; i++)
                 {
                     cout<<arrTwo[i]<<" ";
+                }
+                
+                // merge sort 
+                memcpy(arrThree, arr, num*sizeof(int));
+                mergeSort(arrThree, 0, num - 1); 
+                
+                cout<<endl<<"Merge Sort Output: "<<endl;
+                for(int i=0; i<num; i++)
+                {
+                    cout<<arrThree[i]<<" ";
                 }
                 cout<<endl;
                 break;

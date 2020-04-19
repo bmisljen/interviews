@@ -93,21 +93,25 @@ int main(int argc, char **argv)
             }
             case 3:
             {
-                //string reversal  
                 char str[1024];
+                char strTwo[1024];
+                
                 cout<<"Enter a string to reverse: ";
                 cin>>str;
                 reverseString(str);
-                cout<<"Enter a string to test for anagram: ";
+                cout<<"Enter a string to test for palindrome: ";
                 cin>>str;
-                isAnagram(str);
+                isPalindrome(str);
                 cout<<"Enter a string to print the characters: ";
                 cin>>str;
                 stringprintchars(str);
                 cout<<endl<<"enter a string to find the first unique character: ";
                 cin>>str;
                 char c = firstUnique(str);
-                cout<<"The first unique character of: "<<str<<" is: "<<c<<endl;
+                if (c != '\0')
+                    cout<<"The first unique character of: "<<str<<" is: "<<c<<endl;
+                else
+                    cout<<"There are no unique characters in the string"<<endl; 
                 break;
             }
             case 4:

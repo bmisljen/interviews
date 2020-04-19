@@ -26,7 +26,7 @@ int fibiterative(int n);
 int *sumBinary(int a[], int b[]);
 int paragraph();
 void reverseString (char * str);
-void isAnagram (char str []);
+void isPalindrome (char str []);
 void stringprintchars(char str []);
 int gcd(int a, int b);
 double squareroot(int num);

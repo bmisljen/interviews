@@ -122,9 +122,11 @@ void Tree::printBFS()
      * ex.  3
      *     / \
      *    2   8
-     *   /\  /\
-     * 1  5 7  9
-     *  prints as: 3 28 1579
+     *   /    /\
+     * 1     5  9
+     *        \
+     *         7
+     *  prints as: 3 28 159 7
      */
      
      // use a queue to print the tree 
@@ -162,9 +164,11 @@ void Tree::outputDFS(NODE * leaf)
      * ex.  3
      *     / \
      *    2   8
-     *   /\  /\
-     * 1  5 7  9
-     *  prints as: 3 2 1 5 8 7 9
+     *   /   / \
+     * 1    5   9
+     *       \
+     *        7 
+     *  prints as: 321 857 9
      */
      if (leaf)
      {

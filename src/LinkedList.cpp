@@ -27,7 +27,7 @@ Node::Node()
 Node::~Node()
 {
 	while(head) {
-        // delete the nodes one by one from head onwards 
+        // destructor, delete the nodes one by one from head onwards 
 		NODE *tmp = head;
 		head = head->next;
 		delete tmp;

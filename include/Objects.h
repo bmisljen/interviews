@@ -20,7 +20,7 @@ class Polygon
 {
 public:
     void set_values (int a, int b);
-    virtual int area() =0;
+    virtual int area() = 0;
     void printarea();
     
 protected:

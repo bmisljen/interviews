@@ -27,21 +27,21 @@ using namespace std;
     }NODE;
     
     
-class Tree
-{
+
+class Tree {
 public:
 	Tree();
-	~Tree();
-	void insert(int val);
+    ~Tree();
+    void insert(int val);
     bool search(int val);
-	void printBFS();
+    void printBFS();
     void printDFS();
     
 private:
-	NODE *root;
-    void destroy_leaf(NODE * leaf);
-    void outputDFS(NODE * leaf);
-    void insert(int val, NODE * leaf);
-    bool search(int val, NODE * leaf);
+	node *root;
+    void destroy_leaf(node * leaf);
+    void outputDFS(node * leaf);
+    void insert(int val, node * leaf);
+    bool search(int val, node * leaf);
 };
 

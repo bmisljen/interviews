@@ -27,7 +27,7 @@ const char * reverse(char str [])
     
     for(--tail; head < tail; ++head, --tail)
     {
-        // swap the first and last caharacters of the string 
+        // swap the first and last characters of the string 
         // until we meet in the middle 
         char tmp;
         tmp = *head;
@@ -67,7 +67,7 @@ void reverseString (char str [])
     cout<<"The copied reversed string is: "<<reverseNew(origstr)<<endl;
 }
 
-void isAnagram (char str [])
+void isPalindrome (char str [])
 {
     //save a copy of the original string as it will be reversed 
     size_t len = strlen(str);
@@ -77,11 +77,11 @@ void isAnagram (char str [])
     if (strcmp(origstr, reverse(str)) == 0)
     {
         // original string is the same as the new string 
-        cout<<"the string "<<origstr<<" is an anagram"<<endl;
+        cout<<"the string "<<origstr<<" is a palindrome"<<endl;
     }
     else 
     {
-        cout<<"the string "<<origstr<<" is not an anagram"<<endl;
+        cout<<"the string "<<origstr<<" is not a palindrome"<<endl;
     }
 }
 
@@ -89,25 +89,25 @@ char firstUnique(char str[])
 {
     map<char, int> mapOfChars;
 
-    for (int i = 0; str[i] != '\0'; ++i)
+    for (int i = 0; str[i] != '\0'; i++)
     {
-        if (mapOfChars.count(str[i])) {
+        if (mapOfChars.count(str[i])>0) {
             //char is accounted for 
-            mapOfChars.at(str[i])++;
+            mapOfChars[str[i]]++;
         }
         else 
         {
             // char isn't accounted for 
-            mapOfChars.insert(make_pair(str[i], 1));
+            mapOfChars.insert(pair<char,int>(str[i], 1));
         }
     }
     
-    for (map<char,int>::iterator it=mapOfChars.begin(); it != mapOfChars.end(); ++it)
+    for (map<char,int>::iterator it=mapOfChars.begin(); it != mapOfChars.end(); it++)
     {
         if (it->second == 1)
             return it->first;
     }
-    return 'A'; 
+    return '\0'; 
 }
 
 void stringprintchars(char str [])

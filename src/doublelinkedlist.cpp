@@ -143,7 +143,7 @@ void DoubleNode::reverse()
             // move the current node to the next node 
             curr = currNext;
         }
-        // the head no points to the tail of the previous list 
+        // the head now points to the tail of the previous list 
         NODE *tmpHead = head;
         head = tail;
         tail = tmpHead;

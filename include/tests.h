@@ -23,14 +23,13 @@ all copies or substantial portions of the Software.
 
 int fibrecursive(int n);
 int fibiterative(int n);
-int *sumBinary(int a[], int b[]);
-int paragraph();
-void reverseString (char * str);
-void isPalindrome (char str []);
-void stringprintchars(char str []);
+void reverseString (std::string str);
+void isPalindrome (std::string str);
+void isAnagram (std::string str, std::string strTwo);
+void stringprintchars(std::string str);
 int gcd(int a, int b);
 double squareroot(int num);
-char firstUnique(char str[]);
+char firstUnique(std::string str);
 int multiplyWithoutSign(int a, int b);
 
 void bubble_sort(int * arr, int num);

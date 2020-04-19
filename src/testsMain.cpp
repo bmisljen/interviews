@@ -93,12 +93,15 @@ int main(int argc, char **argv)
             }
             case 3:
             {
-                char str[1024];
-                char strTwo[1024];
+                string str;
+                string strTwo;
                 
                 cout<<"Enter a string to reverse: ";
                 cin>>str;
                 reverseString(str);
+                cout<<"Enter two strings to test for anagram: ";
+                cin>>str>>strTwo;
+                isAnagram(str,strTwo);
                 cout<<"Enter a string to test for palindrome: ";
                 cin>>str;
                 isPalindrome(str);

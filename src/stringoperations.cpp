@@ -17,79 +17,63 @@ all copies or substantial portions of the Software.
 
 using namespace std;
 
-const char * reverse(char str [])
+const string reverse(string str)
 {
-    char * head = str;
-    char * tail = str;
-    
-    // find the end of the string 
-    for (; *tail != '\0'; ++tail);
+    // reverse a string and return it
+    int head = 0;
+    int tail = str.length();
     
     for(--tail; head < tail; ++head, --tail)
     {
         // swap the first and last characters of the string 
         // until we meet in the middle 
         char tmp;
-        tmp = *head;
-        *head = *tail;
-        *tail = tmp;
+        tmp = str[head];
+        str[head] = str[tail];
+        str[tail] = tmp;
     }
     return str;
 }
 
-char *reverseNew(char str [])
+void reverseString (string str)
 {
-    char * head = str;
-    char * tail = str;
-    char * dest = new char[strlen(str)-1];
-    
-    for (; *tail != '\0'; ++tail);
-    
-    int i = 0;
-    
-    do {
-        --tail;
-        dest[i] = *tail;
-        if (head < tail){
-            i++;
-        }
-    }  while(head < tail);
-    return dest;
-}
-
-void reverseString (char str [])
-{
-    size_t len = strlen(str);
-	char* origstr = new char[len];
-	strcpy(origstr, str);
+    string origStr = str; 
     cout<<"The original string is: "<<str<<endl;
     cout<<"The reversed string is: "<<reverse(str)<<endl;
-    cout<<"The copied reversed string is: "<<reverseNew(origstr)<<endl;
 }
 
-void isPalindrome (char str [])
+void isAnagram(string str, string strTwo)
 {
-    //save a copy of the original string as it will be reversed 
-    size_t len = strlen(str);
-	char* origstr = new char[len];
-	strcpy(origstr, str);
-    
-    if (strcmp(origstr, reverse(str)) == 0)
+   // An anagram is when one word contains all the letters of another 
+   sort(str.begin(), str.end()); 
+   sort(strTwo.begin(), strTwo.end()); 
+   
+   if (str.compare(strTwo) == 0)
+       cout<<" The strings "<<str<<" and "<<strTwo<<" are anagrams "<<endl;
+   else
+       cout<<" The strings "<<str<<" and "<<strTwo<<" are not anagrams "<<endl;
+}
+
+void isPalindrome(string str)
+{
+    // A palindrome is when a word is spelled the same way when reversed
+    string origStr = str.assign(str);
+    reverse(str.begin(), str.end());
+    if (origStr.compare(str) == 0)
     {
-        // original string is the same as the new string 
-        cout<<"the string "<<origstr<<" is a palindrome"<<endl;
+        cout<<" The string "<<str<<" is a palindrome "<<endl;   
     }
-    else 
+    else
     {
-        cout<<"the string "<<origstr<<" is not a palindrome"<<endl;
+        cout<<" The string "<<str<<" is not a palindrome "<<endl;   
     }
 }
 
-char firstUnique(char str[])
+char firstUnique(string str)
 {
     map<char, int> mapOfChars;
 
-    for (int i = 0; str[i] != '\0'; i++)
+    for (int i = 0; i < str.length(); i++)
     {
         if (mapOfChars.count(str[i])>0) {
             //char is accounted for 
@@ -110,13 +94,11 @@ char firstUnique(char str[])
     return '\0'; 
 }
 
-void stringprintchars(char str [])
+void stringprintchars(string str)
 {
-    char * head = str;
-    
-    // find the end of the string 
-    for (; *head != '\0'; ++head)
+    // print the characters one by one 
+    for (int head=0; head<str.length(); head++)
     {
-        cout<<*head<<"  ";
+        cout<<str[head]<<"  ";
     }
 }

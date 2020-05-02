@@ -29,6 +29,8 @@ public:
 	void print();
     void rprint();
     void reverse();
+    void sumLists(Node * first, Node * second);
+    int getListSize();
     
 private:
 	typedef struct node {

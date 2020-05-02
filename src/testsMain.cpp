@@ -88,7 +88,30 @@ int main(int argc, char **argv)
                 nd->rprint();
                 cout<<endl<<"Reversing nodes in list, new list printout in order: ";
                 nd->reverse();
-                delete nd; 
+                
+                Node * firstNumber = new Node;
+                firstNumber->append(1);
+                firstNumber->append(2);
+                firstNumber->append(3);
+                
+                Node * secondNumber = new Node;
+                secondNumber->append(7);
+                secondNumber->append(8);
+                secondNumber->append(9);
+                
+                cout<<endl<<"The first number is: ";
+                firstNumber->print();
+                
+                cout<<endl<<"The second number is: ";
+                secondNumber->print();
+            
+                Node * result = new Node;
+                result->sumLists(firstNumber, secondNumber);
+                cout<<endl<<"The summed result is: ";
+                result->print();
+                
+                delete nd, firstNumber, secondNumber, result;
+                
                 break;
             }
             case 3:
@@ -156,7 +179,6 @@ int main(int argc, char **argv)
                 tree->printDFS();
                 cout<<endl;
                 // print the tree using DFS search 
-                //tree->printDFS();
                 delete tree; 
                 break;
             }

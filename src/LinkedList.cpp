@@ -112,6 +112,23 @@ void Node::rprint()
 	cout << endl;
 }
 
+int Node::getListSize()
+{
+    int counter = 1; 
+    
+    if (head == NULL) {
+        return 0;
+    } 
+    
+    NODE *curr = head;
+    while (curr->next != NULL) {
+        counter++;
+        curr = curr->next;
+    }
+    
+    return counter; 
+}
+
 void Node::reverse()
 {
     //reverse a singly linked linked list
@@ -148,3 +165,44 @@ void Node::reverse()
     // print the reversed list 
     print();
 }
+
+void Node::sumLists(Node * first, Node * second) {
+    // Sums two 3-node linked lists and returns the value in a third linked list 
+    
+    vector<int> firstDigits;
+    vector<int> secondDigits; 
+    int carry = 0;
+    
+    if ((first->getListSize() != 3) || (second->getListSize() != 3)) {
+        // improper number of list elements 
+        return;
+    }
+    
+    for (int i=0; i<3; i++)
+    {
+        firstDigits.push_back(first->pop());
+        secondDigits.push_back(second->pop());
+    }
+
+    int onesDigit = firstDigits[2] + secondDigits[2];
+    if (onesDigit > 9) {
+        carry = 1;
+        onesDigit -= 10;
+    } 
+    
+    int tensDigit = firstDigits[1] + secondDigits[1] + carry;
+    carry = 0; 
+    
+    if (tensDigit > 9) {
+        carry = 1;
+        tensDigit -= 10;
+    } 
+   
+    int hundredsDigit = firstDigits[0] + secondDigits[0] + carry;
+    
+    // add the summed elements to the current linked list 
+    this->append(hundredsDigit); 
+    this->append(tensDigit);
+    this->append(onesDigit);
+}
+

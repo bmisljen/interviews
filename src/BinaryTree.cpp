@@ -183,3 +183,27 @@ void Tree::outputDFS(NODE * leaf)
         }
     }
 }
+
+void Tree::printDepth() {
+    
+    int treeDepth = outputDepth(this->root); 
+    cout<<endl<<"Binary tree height: "<<treeDepth<<endl;
+}
+
+int Tree::outputDepth(node * leaf) {
+    
+    if (leaf == NULL) {
+        return 0;
+    }
+    
+    // get the depth of the left and right subtrees using recursion 
+    int leftDepth = outputDepth(leaf->left);
+    int rightDepth = outputDepth(leaf->right);
+    
+    if (leftDepth > rightDepth) {
+        return 1+leftDepth;
+    }
+    return 1+rightDepth;
+    
+}
+

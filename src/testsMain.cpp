@@ -177,6 +177,8 @@ int main(int argc, char **argv)
                 tree->printBFS();
                 // print the tree using DFS search
                 tree->printDFS();
+                // print the height of the binary tree using DFS search 
+                tree->printDepth(); 
                 cout<<endl;
                 // print the tree using DFS search 
                 delete tree; 

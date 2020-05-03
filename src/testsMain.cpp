@@ -199,6 +199,14 @@ int main(int argc, char **argv)
                 cin>>a;
                 cin>>b;
                 cout<<"The result of the multiplication is: "<<multiplyWithoutSign(a,b)<<endl;
+                
+                int arr[5] = {1,2,3,4,5};
+                cout<<"Adding elements: 1,2,3,4,5 to an array"<<endl; 
+                int * target = addToTarget(arr, 5, 8);
+                if (target) {
+                    cout<<"Indexes of two array elements which sum up to 8 are: "<<target[0]<<", "<<target[1]<<endl;
+                }
+                
                 break;
             }
             case 6:
@@ -210,40 +218,45 @@ int main(int argc, char **argv)
                 int arr[num];
                 int arrTwo[num];
                 int arrThree[num];
+                int arrFour[num];
+                
                 cout<<"Enter the ( "<< num <<" ) numbers [THEN PRESS ENTER]:"<<endl;
                 for(int i=0; i<num; i++)
                 {
                     cin>>arr[i];
                 }
                 memcpy(arrTwo, arr, num*sizeof(int)); 
+                memcpy(arrThree, arr, num*sizeof(int));
+                memcpy(arrFour, arr, num*sizeof(int));
+
+                 // bubble sort 
                 bubble_sort(arr, num);
                 
-                // bubble sort 
                 cout<<endl<<"Bubble Sort Output: "<<endl;
-                for(int i=0; i<num; i++)
-                {
-                    cout<<arr[i]<<" ";
-                }
+                displayArray(arr, num);
+                cout<<endl;
                 
                 // insertion sort 
                 insertion_sort(arrTwo, num);
                 
                 cout<<endl<<"Insertion Sort Output: "<<endl;
-                for(int i=0; i<num; i++)
-                {
-                    cout<<arrTwo[i]<<" ";
-                }
+                displayArray(arrTwo, num);
+                cout<<endl; 
                 
                 // merge sort 
-                memcpy(arrThree, arr, num*sizeof(int));
                 mergeSort(arrThree, 0, num - 1); 
                 
                 cout<<endl<<"Merge Sort Output: "<<endl;
-                for(int i=0; i<num; i++)
-                {
-                    cout<<arrThree[i]<<" ";
-                }
+                displayArray(arrThree, num);
                 cout<<endl;
+                
+                // quick sort
+                quickSort(arrFour, 0, num-1); 
+                
+                cout<<endl<<"Quick sort output: "<<endl; 
+                displayArray(arrFour,num); 
+                cout<<endl;
+                
                 break;
             }
             case 7:

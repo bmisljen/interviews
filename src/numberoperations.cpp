@@ -73,4 +73,24 @@ int multiplyWithoutSign(int a, int b)
     return sum;
 }
 
+int * addToTarget(int * arr, int arraySize, int target) {
+    // returns the index of two numbers in an array which sum up to a target value 
+    
+    // the array must be defined as static to avoid a segmentation fault when accessed 
+    // after the function returns 
+    static int indexes[2];
+    
+    for (int i=0; i<arraySize-1; i++) {
+        for (int j=i+1; j<arraySize; j++) {
+            
+            if ((arr[i] + arr[j]) == target) {
+                indexes[0] = i;
+                indexes[1] = j; 
+                return indexes; 
+            }
+        }
+    }
+    return NULL; 
+}
+
 

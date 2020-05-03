@@ -30,8 +30,10 @@ void stringprintchars(std::string str);
 int gcd(int a, int b);
 double squareroot(int num);
 char firstUnique(std::string str);
-int multiplyWithoutSign(int a, int b);
-
+int  multiplyWithoutSign(int a, int b);
+int * addToTarget(int * arr, int arraySize, int target);
 void bubble_sort(int * arr, int num);
 void insertion_sort (int * arr, int num);
 void mergeSort(int * arr, int l, int r);
+void quickSort(int arr[], int low, int high);
+void displayArray(int arr[], int size);

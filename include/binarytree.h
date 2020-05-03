@@ -36,9 +36,11 @@ public:
     bool search(int val);
     void printBFS();
     void printDFS();
+    void printDepth(); 
     
 private:
 	node *root;
+    int outputDepth(node * leaf); 
     void destroy_leaf(node * leaf);
     void outputDFS(node * leaf);
     void insert(int val, node * leaf);
